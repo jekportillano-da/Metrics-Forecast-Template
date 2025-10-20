@@ -246,6 +246,46 @@
             display: block;
         }
         
+        /* Metric Toggle Styles */
+        .metric-toggles {
+            display: flex;
+            gap: 10px;
+            flex-wrap: wrap;
+        }
+        
+        .metric-toggle {
+            padding: 10px 20px;
+            background: #e8e9ea;
+            border: 2px solid #d1d3d4;
+            border-radius: 6px;
+            cursor: pointer;
+            font-size: 0.9rem;
+            font-weight: 500;
+            color: #495057;
+            transition: all 0.3s ease;
+            min-width: 130px;
+            text-align: center;
+        }
+        
+        .metric-toggle:hover {
+            background: #d1ecf1;
+            border-color: #2196F3;
+            color: #2196F3;
+            transform: translateY(-1px);
+        }
+        
+        .metric-toggle.active {
+            background: #2196F3;
+            border-color: #1976D2;
+            color: white;
+            box-shadow: 0 2px 4px rgba(33, 150, 243, 0.3);
+        }
+        
+        .metric-toggle.active:hover {
+            background: #1976D2;
+            color: white;
+        }
+        
         .data-table-small {
             font-size: 0.8rem;
         }
@@ -303,6 +343,16 @@
             .data-table th,
             .data-table td {
                 padding: 6px 4px;
+            }
+            
+            .metric-toggles {
+                justify-content: center;
+            }
+            
+            .metric-toggle {
+                min-width: 100px;
+                font-size: 0.8rem;
+                padding: 8px 15px;
             }
         }
     </style>
@@ -1344,6 +1394,24 @@
         
         <!-- Time Series Visualizations -->
         <div class="section">
+            <!-- Metric Toggle Controls -->
+            <div style="background: #f8f9fa; padding: 15px; border-radius: 8px; margin-bottom: 20px;">
+                <div style="display: flex; align-items: center; gap: 20px; flex-wrap: wrap;">
+                    <div style="font-weight: bold; color: #333;">📊 Select Metric:</div>
+                    <div class="metric-toggles">
+                        <button class="metric-toggle active" onclick="switchMetric('gmv')" id="gmv-toggle">
+                            💰 GMV (Revenue)
+                        </button>
+                        <button class="metric-toggle" onclick="switchMetric('users')" id="users-toggle">
+                            👥 Users
+                        </button>
+                        <button class="metric-toggle" onclick="switchMetric('churn')" id="churn-toggle">
+                            📉 Churn Rate
+                        </button>
+                    </div>
+                </div>
+            </div>
+            
             <div class="tabs">
                 <button class="tab active" onclick="showTab('spend-chart')">Spend Analysis</button>
                 <button class="tab" onclick="showTab('users-chart')">Users Analysis</button>
@@ -1392,15 +1460,18 @@
         // Actual data (Jan-Jun 2025) - FROM FINAL CSV DATA
         const actualSpend = [3.29, 2.93, 3.62, 3.39, 4.40, 4.76];
         const actualUsers = [20.632, 19.051, 20.749, 20.376, 24.202, 25.823];
+        const actualChurn = [28.5, 29.2, 27.8, 28.9, 26.1, 24.1]; // Historical churn rates (%)
         
         // Forecast with VOX-ING (Jul-Dec 2025) - ACTUAL AUG-SEP, FORECAST OCT-DEC (Dec seasonally adjusted +6.6%)
         const forecastSpend = [null, null, null, null, null, null, 4.54, 6.32, 10.34, 10.87, 11.34, 12.09];
         const forecastUsers = [null, null, null, null, null, null, 21.189, 40.469, 67.873, 72.621, 73.549, 79.333];
+        const forecastChurn = [null, null, null, null, null, null, 23.2, 22.8, 22.1, 21.5, 20.9, 20.3]; // Projected churn decline
         
         // VOX-ING Enhanced Targets - REALISTIC TARGETS ABOVE FORECASTS
         // Core business targets + VOX-ING = Combined targets (stretch goals)
         const targetSpend = [null, null, null, null, null, null, 5.05, 5.35, 10.34, 10.96, 11.62, 12.94];
         const targetUsers = [null, null, null, null, null, null, 27.9, 30.1, 67.9, 73.3, 79.2, 80.174];
+        const targetChurn = [null, null, null, null, null, null, 22.5, 21.8, 21.0, 20.3, 19.6, 18.9]; // Aggressive churn reduction targets
         
         // Core business without VOX-ING (Jul-Dec 2025) - FROM FINAL CSV FORECASTS (Dec seasonally adjusted +5.1%)
         const baselineSpend = [null, null, null, null, null, null, 4.54, 4.86, 4.85, 4.87, 4.84, 5.09];
@@ -1421,7 +1492,7 @@
         const completeUsers = [...actualUsers, ...forecastUsers.slice(7)];
         
         // Global chart variables for dynamic updates
-        let spendChart, usersChart;
+        let spendChart, usersChart, voxChart, scenariosChart;
         
         // Spend Chart
         const spendCtx = document.getElementById('spendChart').getContext('2d');
@@ -1591,7 +1662,7 @@
         
         // VOX-ING Only Chart
         const voxCtx = document.getElementById('voxChart').getContext('2d');
-        const voxChart = new Chart(voxCtx, {
+        voxChart = new Chart(voxCtx, {
             type: 'bar',
             data: {
                 labels: months2025,
@@ -1671,7 +1742,7 @@
         
         // All Scenarios Chart
         const scenariosCtx = document.getElementById('scenariosChart').getContext('2d');
-        const scenariosChart = new Chart(scenariosCtx, {
+        scenariosChart = new Chart(scenariosCtx, {
             type: 'line',
             data: {
                 labels: months2025,
@@ -1763,6 +1834,121 @@
                 }
             }
         });
+        
+        // Current metric state
+        let currentMetric = 'gmv';
+        
+        // Metric switching functionality
+        function switchMetric(metric) {
+            // Update toggle buttons
+            document.querySelectorAll('.metric-toggle').forEach(btn => {
+                btn.classList.remove('active');
+            });
+            document.getElementById(metric + '-toggle').classList.add('active');
+            
+            // Update current metric
+            currentMetric = metric;
+            
+            // Get data arrays based on selected metric
+            let actualData, forecastData, targetData, baselineData, voxData;
+            let yAxisTitle, tooltipFormat, chartTitle;
+            
+            switch(metric) {
+                case 'gmv':
+                    actualData = [...actualSpend, ...Array(6).fill(null)];
+                    forecastData = forecastSpend;
+                    targetData = targetSpend;
+                    baselineData = [...Array(6).fill(null), ...baselineSpend.slice(6)];
+                    voxData = voxSpend;
+                    yAxisTitle = 'GMV ($ Millions)';
+                    tooltipFormat = (value) => '$' + value.toFixed(2) + 'M';
+                    chartTitle = 'Monthly GMV: Actual, Forecast & Targets';
+                    break;
+                    
+                case 'users':
+                    actualData = [...actualUsers, ...Array(6).fill(null)];
+                    forecastData = forecastUsers;
+                    targetData = targetUsers;
+                    baselineData = [...Array(6).fill(null), ...baselineUsers.slice(6)];
+                    voxData = voxUsers;
+                    yAxisTitle = 'Users (Thousands)';
+                    tooltipFormat = (value) => value.toFixed(1) + 'K users';
+                    chartTitle = 'Monthly Users: Actual, Forecast & Targets';
+                    break;
+                    
+                case 'churn':
+                    actualData = [...actualChurn, ...Array(6).fill(null)];
+                    forecastData = forecastChurn;
+                    targetData = targetChurn;
+                    baselineData = [...Array(6).fill(null), ...baselineTargetChurn.slice(6)];
+                    voxData = [...Array(12).fill(null)]; // VOX doesn't have separate churn
+                    yAxisTitle = 'Churn Rate (%)';
+                    tooltipFormat = (value) => value.toFixed(1) + '%';
+                    chartTitle = 'Monthly Churn Rate: Actual, Forecast & Targets';
+                    break;
+            }
+            
+            // Update spend chart
+            spendChart.data.datasets[0].data = actualData;
+            spendChart.data.datasets[1].data = forecastData;
+            spendChart.data.datasets[2].data = targetData;
+            spendChart.options.scales.y.title.text = yAxisTitle;
+            spendChart.options.plugins.title.text = chartTitle;
+            spendChart.options.plugins.tooltip.callbacks.label = function(context) {
+                return context.dataset.label + ': ' + tooltipFormat(context.parsed.y);
+            };
+            spendChart.update();
+            
+            // Update users chart
+            usersChart.data.datasets[0].data = actualData;
+            usersChart.data.datasets[1].data = forecastData;
+            usersChart.data.datasets[2].data = targetData;
+            usersChart.options.scales.y.title.text = yAxisTitle;
+            usersChart.options.plugins.title.text = chartTitle;
+            usersChart.options.plugins.tooltip.callbacks.label = function(context) {
+                return context.dataset.label + ': ' + tooltipFormat(context.parsed.y);
+            };
+            usersChart.update();
+            
+            // Update VOX-ING chart (only show if VOX has data for this metric)
+            if (metric !== 'churn') {
+                voxChart.data.datasets[0].data = voxData;
+                voxChart.options.scales.y.title.text = yAxisTitle;
+                voxChart.options.plugins.title.text = 'VOX-ING ' + (metric === 'gmv' ? 'Revenue' : 'Users') + ' Contribution';
+                voxChart.options.plugins.tooltip.callbacks.label = function(context) {
+                    return context.dataset.label + ': ' + tooltipFormat(context.parsed.y);
+                };
+                voxChart.update();
+            }
+            
+            // Update scenarios chart
+            scenariosChart.data.datasets[0].data = actualData;
+            scenariosChart.data.datasets[1].data = baselineData;
+            scenariosChart.data.datasets[2].data = forecastData;
+            scenariosChart.data.datasets[3].data = voxData;
+            scenariosChart.data.datasets[4].data = targetData;
+            scenariosChart.options.scales.y.title.text = yAxisTitle;
+            scenariosChart.options.plugins.title.text = 'All Scenarios: ' + (metric === 'gmv' ? 'GMV' : metric === 'users' ? 'Users' : 'Churn') + ' Comparison';
+            scenariosChart.options.plugins.tooltip.callbacks.label = function(context) {
+                return context.dataset.label + ': ' + tooltipFormat(context.parsed.y || 0);
+            };
+            scenariosChart.update();
+            
+            // Update chart titles in the tabs
+            const titles = document.querySelectorAll('.tab-content h3');
+            titles.forEach(title => {
+                const metricName = metric === 'gmv' ? 'GMV' : metric === 'users' ? 'Users' : 'Churn Rate';
+                if (title.textContent.includes('Spend') || title.textContent.includes('Users') || title.textContent.includes('GMV') || title.textContent.includes('Churn')) {
+                    if (title.parentElement.id === 'spend-chart' || title.parentElement.id === 'users-chart') {
+                        title.textContent = `Monthly ${metricName}: Forecast vs Target`;
+                    } else if (title.parentElement.id === 'vox-only') {
+                        title.textContent = `VOX-ING ${metricName} Performance`;
+                    } else if (title.parentElement.id === 'scenarios') {
+                        title.textContent = `All Scenarios: ${metricName} Comparison`;
+                    }
+                }
+            });
+        }
         
         // Tab switching functionality for charts
         function showTab(tabName) {
