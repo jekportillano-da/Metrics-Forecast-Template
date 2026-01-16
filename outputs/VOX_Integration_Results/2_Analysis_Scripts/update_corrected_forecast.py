@@ -123,7 +123,7 @@ print("Summary table saved to 'forecast_vs_target_summary.csv'")
 
 print()
 print("=== IMPACT ANALYSIS ===")
-print("With VOX-ING integration and corrected target methodology:")
+print("With VOX-Network_Partner_2 integration and corrected target methodology:")
 print(f"December 2025:")
 print(f"- Forecast: $8.29M spend, 48k users (realistic expectation)")
 print(f"- Target: $9.94M spend, 58k users (stretch goal)")

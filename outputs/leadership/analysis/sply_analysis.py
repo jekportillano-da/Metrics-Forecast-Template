@@ -2,8 +2,8 @@
 
 # Historical data
 sply_2024 = [2.56, 2.47, 2.73, 4.07, 4.28]  # Aug-Dec 2024
-sply_2025_organic = [3.85, 4.45, 4.44, 4.40, 4.50]  # Aug-Dec 2025 (excl VOX-ING)
-sply_2025_vox = [1.71, 5.45, 3.98, 4.20, 4.50]  # VOX-ING contribution
+sply_2025_organic = [3.85, 4.45, 4.44, 4.40, 4.50]  # Aug-Dec 2025 (excl VOX-Network_Partner_2)
+sply_2025_vox = [1.71, 5.45, 3.98, 4.20, 4.50]  # VOX-Network_Partner_2 contribution
 sply_2025_total = [o + v for o, v in zip(sply_2025_organic, sply_2025_vox)]
 
 months = ['Aug', 'Sep', 'Oct', 'Nov', 'Dec']
@@ -20,7 +20,7 @@ for i, month in enumerate(months):
     
     print(f"\n{month} 2024: ${gmv_2024:.2f}M → {month} 2025: ${gmv_2025:.2f}M")
     print(f"  YoY Growth: +{growth:.1f}%")
-    print(f"  VOX-ING: ${sply_2025_vox[i]:.2f}M ({vox_contrib:.0f}% of total)")
+    print(f"  VOX-Network_Partner_2: ${sply_2025_vox[i]:.2f}M ({vox_contrib:.0f}% of total)")
     print(f"  Organic: ${sply_2025_organic[i]:.2f}M ({100-vox_contrib:.0f}% of total)")
 
 print("\n" + "="*70)
@@ -64,7 +64,7 @@ print("User Growth Context")
 print("="*70)
 users_2024 = [24.50, 21.89, 24.38, 32.84, 34.64]  # Aug-Dec 2024
 users_2025_organic = [27.85, 26.62, 25.37, 27.60, 28.15]  # Aug-Dec 2025 (excl VOX)
-users_2025_vox = [0, 0, 0, 0.72, 1.57]  # VOX-ING users
+users_2025_vox = [0, 0, 0, 0.72, 1.57]  # VOX-Network_Partner_2 users
 users_2025_total = [o + v for o, v in zip(users_2025_organic, users_2025_vox)]
 
 nov_dec_users_2024 = (32.84 + 34.64) / 2
@@ -80,7 +80,7 @@ print("="*70)
 print("""
 1. GMV SURGE: Nov-Dec 2025 projected at ~$8.8M average (+111% YoY)
    - This is MORE THAN DOUBLE last year's holiday performance
-   - VOX-ING partnership contributing ~50% of growth
+   - VOX-Network_Partner_2 partnership contributing ~50% of growth
 
 2. VOLUME SPIKE: Expecting ~78K-82K transactions per month
    - Up from 77K in October (+2-7% monthly growth)
@@ -94,10 +94,10 @@ print("""
    - Payment processing capacity: Ensure infrastructure handles 80K+ txns
    - Merchant support: Top merchants will see 2x volume vs last year
    - Customer service: Plan for proportional inquiry volume increase
-   - Network partnerships: VOX-ING relationship critical to Q4 success
+   - Network partnerships: VOX-Network_Partner_2 relationship critical to Q4 success
 
 5. RISK FACTORS:
-   - High dependency on VOX-ING (50% of Q4 GMV)
+   - High dependency on VOX-Network_Partner_2 (50% of Q4 GMV)
    - User decline trend must reverse for long-term health
    - Holiday seasonality makes Jan 2026 drop-off likely
 """)

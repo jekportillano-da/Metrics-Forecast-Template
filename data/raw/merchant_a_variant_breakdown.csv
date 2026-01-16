@@ -1,0 +1,6 @@
+variant,unique_users,transaction_count,total_spend,avg_spend_per_user
+Merchant_A Instore,29526,75242,3539789.35,119.88719603061709
+Merchant_A Online,1150,1759,142363.72,123.79453913043479
+Merchant_A,101,268,13266.580000000002,131.3522772277228
+Merchant_A - affiliate_platform,23,46,1870.72,81.33565217391305
+Merchant_A eGift Card,16,24,1685.0,105.3125

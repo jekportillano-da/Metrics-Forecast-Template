@@ -1,0 +1,9 @@
+month,unique_users,transaction_count,total_spend,scenario
+2025-07,7196,17356,899315.7300000001,With VOX-Network_Partner_2 Network
+2025-08,7622,17914,875321.81,With VOX-Network_Partner_2 Network
+2025-09,8572,23727,1039950.15,With VOX-Network_Partner_2 Network
+2025-10,7426,18342,884387.68,With VOX-Network_Partner_2 Network
+2025-07,6978,16844,872291.59,Without VOX-Network_Partner_2 Network
+2025-08,7361,17281,841472.65,Without VOX-Network_Partner_2 Network
+2025-09,8426,23727,1039950.15,Without VOX-Network_Partner_2 Network
+2025-10,7358,18340,884237.68,Without VOX-Network_Partner_2 Network

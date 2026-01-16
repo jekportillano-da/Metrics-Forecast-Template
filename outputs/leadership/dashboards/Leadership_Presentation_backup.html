@@ -446,12 +446,12 @@
                             <tbody>
                                 <tr style="border-bottom: 1px solid #eee;">
                                     <td style="padding: 10px 8px;">1</td>
-                                    <td style="padding: 10px 8px; font-weight: 500;">BWS Instore</td>
+                                    <td style="padding: 10px 8px; font-weight: 500;">Merchant_A Instore</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">$1.81M</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee;">
                                     <td style="padding: 10px 8px;">2</td>
-                                    <td style="padding: 10px 8px; font-weight: 500;">Petbarn Online</td>
+                                    <td style="padding: 10px 8px; font-weight: 500;">Merchant_B Online</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">$775K</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee;">
@@ -491,7 +491,7 @@
                                 </tr>
                                 <tr>
                                     <td style="padding: 10px 8px;">10</td>
-                                    <td style="padding: 10px 8px; font-weight: 500;">Coles - shopback</td>
+                                    <td style="padding: 10px 8px; font-weight: 500;">Coles - affiliate_platform</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #17a2b8; font-weight: 600;">$160K</td>
                                 </tr>
                             </tbody>
@@ -889,7 +889,7 @@
                             <tbody>
                                 <tr style="border-bottom: 1px solid #eee; background: #d4edda;">
                                     <td style="padding: 10px 8px;">1</td>
-                                    <td style="padding: 10px 8px; font-weight: 600; color: #155724;">MyNRMA 🚀</td>
+                                    <td style="padding: 10px 8px; font-weight: 600; color: #155724;">Network_Partner_1 🚀</td>
                                     <td style="padding: 10px 8px; text-align: right; font-weight: 600;">$1.71M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">$2.00M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">+17.4%</td>
@@ -964,7 +964,7 @@
                     <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3;">
                         <h4 style="color: #1565c0; margin: 0 0 10px 0; font-size: 14px;">� GMV Performance Analysis:</h4>
                         <ul style="color: #1565c0; margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.5;">
-                            <li><strong>Business value concentration</strong> - MyNRMA and VOX-Suncorp represent $3.25M+ combined GMV</li>
+                            <li><strong>Business value concentration</strong> - Network_Partner_1 and VOX-Suncorp represent $3.25M+ combined GMV</li>
                             <li><strong>Explosive growth</strong> - CITRO (+241%) and PokitPal (+214%) driving significant value creation</li>
                             <li><strong>Revenue diversification</strong> - Multiple networks contributing meaningful GMV growth</li>
                             <li><strong>Clean data insights</strong> - GMV focus provides clearer business impact assessment</li>
@@ -1239,7 +1239,7 @@
         const targetUsers = [null, null, null, null, null, null, 21.189, 24.0, 27.0, 29.5, 31.0, 32.674]; // From July anchor to Dec target  
         const targetChurn = [null, null, null, null, null, null, 33.07, 29.5, 26.0, 23.0, 21.0, 19.5]; // From July anchor to Dec target
 
-        // ING data (Aug-Dec 2025) - Started Aug 21st, peaked in Sep, normalizing Oct onwards
+        // Network_Partner_2 data (Aug-Dec 2025) - Started Aug 21st, peaked in Sep, normalizing Oct onwards
         const ingGMV = [null, null, null, null, null, null, null, 1.91, 5.62, 2.50, 2.80, 3.00]; // Corrected actual Sep, projected Oct-Dec normalization
         const ingUsers = [null, null, null, null, null, null, null, 15.4, 40.0, 18.0, 20.0, 22.0]; // Corrected Oct actual, gradual recovery
         const ingChurn = [null, null, null, null, null, null, null, 45.0, 38.0, 42.0, 44.0, 46.0]; // Higher churn rates for new publisher
@@ -1288,7 +1288,7 @@
                         tension: 0.2
                     },
                     {
-                        label: 'ING Performance',
+                        label: 'Network_Partner_2 Performance',
                         data: ingGMV,
                         borderColor: '#9b59b6',
                         backgroundColor: 'rgba(155, 89, 182, 0.1)',
@@ -1408,7 +1408,7 @@
                     actualData = actualChurn;
                     forecastData = forecastChurn;
                     targetData = targetChurn;
-                    ingData = [null, null, null, null, null, null, null, null, null, null, null, null]; // No ING data for churn
+                    ingData = [null, null, null, null, null, null, null, null, null, null, null, null]; // No Network_Partner_2 data for churn
                     yAxisLabel = 'Churn Rate (%)';
                     break;
             }

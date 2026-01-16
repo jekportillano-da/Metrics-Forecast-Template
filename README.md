@@ -17,8 +17,8 @@ A comprehensive data analytics platform built for analyzing **450K+ financial tr
 - ✅ **Automated ETL Pipeline** - Transaction ingestion with validation and deduplication
 - ✅ **Time Series Forecasting** - Holt-Winters exponential smoothing with seasonal adjustment
 - ✅ **Executive Dashboards** - Interactive HTML dashboards for leadership reporting
-- ✅ **Merchant Analytics** - Deep-dive analysis on merchant performance (BWS, Petbarn)
-- ✅ **Network Attribution** - VOX-ING integration tracking and analysis
+- ✅ **Merchant Analytics** - Deep-dive analysis on merchant performance (Merchant_A, Merchant_B)
+- ✅ **Network Attribution** - VOX-Network_Partner_2 integration tracking and analysis
 - ✅ **Data Privacy** - Database git-ignored for security compliance
 
 ---
@@ -36,7 +36,7 @@ pokitpal-metrics/
 │   ├── create_forecast_2026.py       # Main forecasting pipeline
 │   ├── merchant_analysis.py          # Merchant performance analysis
 │   └── analysis/
-│       └── bws_petbarn/              # BWS/Petbarn specific scripts
+│       └── bws_petbarn/              # Merchant_A/Merchant_B specific scripts
 │
 ├── data/
 │   ├── raw/                   # Source CSV files (git tracked)
@@ -52,7 +52,7 @@ pokitpal-metrics/
 │   │   ├── dashboards/        # HTML interactive dashboards
 │   │   ├── analysis/          # SPLY and forecast scripts
 │   │   └── documentation/     # Methodology guides
-│   └── VOX_Integration_Results/  # VOX-ING analysis
+│   └── VOX_Integration_Results/  # VOX-Network_Partner_2 analysis
 │
 ├── requirements.txt           # Python dependencies
 ├── .gitignore                # Comprehensive ignore rules
@@ -164,13 +164,13 @@ python scripts/merchant_analysis.py
 
 ## 🔍 Key Analyses
 
-### 1. BWS/Petbarn Merchant Deep-Dive
+### 1. Merchant_A/Merchant_B Merchant Deep-Dive
 **Location:** [scripts/analysis/bws_petbarn/](scripts/analysis/bws_petbarn/)  
 **Reports:** [docs/BWS_PETBARN_ANALYSIS_REPORT.md](docs/BWS_PETBARN_ANALYSIS_REPORT.md)
 
 - Variant performance comparison (cashback tiers)
 - Offer pause impact analysis
-- VOX-ING network exclusion studies
+- VOX-Network_Partner_2 network exclusion studies
 
 ### 2. VOX Integration Impact
 **Location:** [outputs/VOX_Integration_Results/](outputs/VOX_Integration_Results/)  

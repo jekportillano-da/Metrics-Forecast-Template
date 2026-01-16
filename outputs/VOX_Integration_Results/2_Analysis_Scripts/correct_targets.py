@@ -15,7 +15,7 @@ forecast_data = {
     'Dec 2025': {'forecast_spend': 8286612.74, 'forecast_users': 48079}
 }
 
-print("=== CURRENT FORECASTS (WITH VOX-ING) ===")
+print("=== CURRENT FORECASTS (WITH VOX-Network_Partner_2) ===")
 for month, data in forecast_data.items():
     print(f"{month}: ${data['forecast_spend']:,.2f} spend, {data['forecast_users']:,} users")
 print()

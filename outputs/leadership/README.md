@@ -7,7 +7,7 @@ This folder contains all leadership-focused dashboards, analysis scripts, and do
 ### `/dashboards` - Executive Dashboards
 - **Leadership_Presentation_Nov2025.html** - Current executive dashboard (November 2025)
   - Performance trends with historical data, forecasts, and targets
-  - GMV and User metrics with VOX-ING breakdown
+  - GMV and User metrics with VOX-Network_Partner_2 breakdown
   - SPLY (Same Period Last Year) analysis with holiday surge insights
   - Merchant performance tables (Top 10 GMV, Material Declines)
   - Fully interactive, standalone HTML file
@@ -49,8 +49,8 @@ This folder contains all leadership-focused dashboards, analysis scripts, and do
 ## 📊 Current Dashboard Metrics (November 2025)
 
 **October 2025 Performance:**
-- GMV: $4.44M organic + $3.98M VOX-ING = $8.42M total
-- Users: 25.37K organic + 25.40K VOX-ING = 50.77K total
+- GMV: $4.44M organic + $3.98M VOX-Network_Partner_2 = $8.42M total
+- Users: 25.37K organic + 25.40K VOX-Network_Partner_2 = 50.77K total
 
 **Nov-Dec 2025 Forecast:**
 - Nov: $10M GMV (57K users) - +19% GMV, +12% users from October
@@ -58,17 +58,17 @@ This folder contains all leadership-focused dashboards, analysis scripts, and do
 - Holiday surge pattern applied based on 2024 SPLY analysis
 
 **Key Features:**
-- ✅ VOX-ING contribution tracked separately
+- ✅ VOX-Network_Partner_2 contribution tracked separately
 - ✅ Organic vs partnership growth clearly distinguished
 - ✅ Material merchant declines identified (50+ txns, 30%+ decline)
 - ✅ Holiday surge projections with operational readiness metrics
-- ✅ BWS merchants excluded from performance tables
+- ✅ Merchant_A merchants excluded from performance tables
 
 ## 🔗 Data Sources
 
 All dashboards pull from: `../pokitpal_historical_data.db`
 - Historical transactions: Jan-Oct 2025
-- Network breakdowns (Organic, VOX-ING)
+- Network breakdowns (Organic, VOX-Network_Partner_2)
 - Merchant performance data
 - Monthly aggregated metrics
 

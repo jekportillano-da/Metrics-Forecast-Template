@@ -336,7 +336,7 @@
                     </div>
                 </div>
                 <div style="background: white; padding: 15px; border-radius: 10px; border-left: 4px solid #2196f3;">
-                    <strong style="color: #1565c0;">Business Focus:</strong> <span style="color: #495057;">October shows post-peak normalization with GMV down 18.7% from September's high and users declining 25.3%. Churn improved to 27.2%. Metrics exclude VOX-ING to focus on organic platform performance.</span>
+                    <strong style="color: #1565c0;">Business Focus:</strong> <span style="color: #495057;">October shows post-peak normalization with GMV down 18.7% from September's high and users declining 25.3%. Churn improved to 27.2%. Metrics exclude VOX-Network_Partner_2 to focus on organic platform performance.</span>
                 </div>
             </div>
         </div>
@@ -417,7 +417,7 @@
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee;">
                                     <td style="padding: 10px 8px;">3</td>
-                                    <td style="padding: 10px 8px; font-weight: 500;">Petbarn</td>
+                                    <td style="padding: 10px 8px; font-weight: 500;">Merchant_B</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">$372K</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee;">
@@ -447,7 +447,7 @@
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee;">
                                     <td style="padding: 10px 8px;">9</td>
-                                    <td style="padding: 10px 8px; font-weight: 500;">Coles - shopback</td>
+                                    <td style="padding: 10px 8px; font-weight: 500;">Coles - affiliate_platform</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #17a2b8; font-weight: 600;">$211K</td>
                                 </tr>
                                 <tr>
@@ -836,14 +836,14 @@
                             <tbody>
                                 <tr style="border-bottom: 1px solid #eee; background: #d4edda;">
                                     <td style="padding: 10px 8px;">1</td>
-                                    <td style="padding: 10px 8px; font-weight: 600; color: #155724;">VOX - ING 🚀</td>
+                                    <td style="padding: 10px 8px; font-weight: 600; color: #155724;">VOX - Network_Partner_2 🚀</td>
                                     <td style="padding: 10px 8px; text-align: right; font-weight: 600;">$5.11M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #28a745; font-weight: 600;">$3.94M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #dc3545; font-weight: 600;">-22.9%</td>
                                 </tr>
                                 <tr style="border-bottom: 1px solid #eee; background: #f8d7da;">
                                     <td style="padding: 10px 8px;">2</td>
-                                    <td style="padding: 10px 8px; font-weight: 500; color: #dc3545;">MyNRMA ⚠️</td>
+                                    <td style="padding: 10px 8px; font-weight: 500; color: #dc3545;">Network_Partner_1 ⚠️</td>
                                     <td style="padding: 10px 8px; text-align: right; font-weight: 600;">$2.00M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #dc3545; font-weight: 600;">$1.74M</td>
                                     <td style="padding: 10px 8px; text-align: right; color: #dc3545; font-weight: 600;">-13.0%</td>
@@ -910,7 +910,7 @@
                     <div style="margin-top: 15px; padding: 15px; background: #e3f2fd; border-radius: 10px; border-left: 4px solid #2196f3;">
                         <h4 style="color: #1565c0; margin: 0 0 10px 0; font-size: 14px;">� GMV Performance Analysis:</h4>
                         <ul style="color: #1565c0; margin: 0; padding-left: 20px; font-size: 13px; line-height: 1.5;">
-                            <li><strong>Business value concentration</strong> - MyNRMA and VOX-Suncorp represent $3.25M+ combined GMV</li>
+                            <li><strong>Business value concentration</strong> - Network_Partner_1 and VOX-Suncorp represent $3.25M+ combined GMV</li>
                             <li><strong>Explosive growth</strong> - CITRO (+241%) and PokitPal (+214%) driving significant value creation</li>
                             <li><strong>Revenue diversification</strong> - Multiple networks contributing meaningful GMV growth</li>
                             <li><strong>Clean data insights</strong> - GMV focus provides clearer business impact assessment</li>
@@ -1133,7 +1133,7 @@
         // Data arrays
         const months = ['Jan', 'Feb', 'Mar', 'Apr', 'May', 'Jun', 'Jul', 'Aug', 'Sep', 'Oct', 'Nov', 'Dec'];
         
-        // Historical actual data (Jan-Oct 2025) - CORRECTED to exclude VOX-ING for Jul-Oct
+        // Historical actual data (Jan-Oct 2025) - CORRECTED to exclude VOX-Network_Partner_2 for Jul-Oct
         const actualGMV = [3.29, 2.93, 3.62, 3.13, 4.03, 4.19, 2.59, 2.75, 3.33, 3.37, null, null];
         const actualUsers = [20.632, 19.051, 20.749, 20.392, 24.229, 26.010, 16.042, 17.243, 19.410, 18.346, null, null];
         const actualChurn = [28.5, 29.2, 27.8, 28.9, 26.1, 24.1, 33.07, 31.06, 31.06, 27.2, null, null];
@@ -1199,7 +1199,7 @@
                         tension: 0.2
                     },
                     {
-                        label: 'ING Performance',
+                        label: 'Network_Partner_2 Performance',
                         data: ingGMV,
                         borderColor: '#9b59b6',
                         backgroundColor: 'rgba(155, 89, 182, 0.1)',
@@ -1319,7 +1319,7 @@
                     actualData = actualChurn;
                     forecastData = forecastChurn;
                     targetData = targetChurn;
-                    ingData = [null, null, null, null, null, null, null, null, null, null, null, null]; // No ING data for churn
+                    ingData = [null, null, null, null, null, null, null, null, null, null, null, null]; // No Network_Partner_2 data for churn
                     yAxisLabel = 'Churn Rate (%)';
                     break;
             }

@@ -12,14 +12,14 @@
 ## 🚀 Business Challenge
 
 Pokitpal needed a comprehensive forecasting system to:
-1. Track revenue performance across **two distinct business streams** (core business + new VOX-ING partnership)
+1. Track revenue performance across **two distinct business streams** (core business + new VOX-Network_Partner_2 partnership)
 2. Set **realistic, achievable targets** for December 2025 and beyond
 3. Provide **executive-level visibility** into business performance
 4. Enable **data-driven decision making** with clear methodology
 5. Create **future-proof infrastructure** for ongoing updates (Jan-Jun 2026)
 
 ### Key Complexity
-The VOX-ING partnership launched mid-year (August 2025), requiring careful integration of:
+The VOX-Network_Partner_2 partnership launched mid-year (August 2025), requiring careful integration of:
 - Existing core business trajectory
 - New partnership performance
 - Seasonal adjustments
@@ -40,11 +40,11 @@ Built a fully-featured HTML/JavaScript dashboard featuring:
 - **Responsive Design**: Works on desktop, tablet, and mobile
 
 #### 📈 Business Intelligence Features
-- **Dual-Stream Tracking**: Core business vs. VOX-ING revenue
+- **Dual-Stream Tracking**: Core business vs. VOX-Network_Partner_2 revenue
 - **Target Methodology**: Conservative 7% stretch goals (vs. industry 15-20%)
 - **Compound Growth Modeling**: 6% monthly spend, 4% users, 6% ARPU
 - **Seasonal Adjustments**: Data-driven factors based on historical patterns
-- **Reality Validation**: Anchored to actual Aug/Sep 2025 VOX-ING performance
+- **Reality Validation**: Anchored to actual Aug/Sep 2025 VOX-Network_Partner_2 performance
 
 #### 📝 Comprehensive Documentation
 - **FORECAST_METHODOLOGY.md**: Complete calculation logic and formulas
@@ -61,11 +61,11 @@ Built a fully-featured HTML/JavaScript dashboard featuring:
 | Stream | Forecast | Target | Users |
 |--------|----------|--------|-------|
 | **Core Business** | $5.09M | $5.94M | 31.8K |
-| **VOX-ING** | $7.00M | — | 47.5K |
+| **VOX-Network_Partner_2** | $7.00M | — | 47.5K |
 | **Combined** | $12.09M | $12.94M | 79.3K |
 
 ### Business Impact
-- **57.9%** VOX-ING revenue share (pure incremental)
+- **57.9%** VOX-Network_Partner_2 revenue share (pure incremental)
 - **$0.85M** achievable target gap (7% conservative stretch)
 - **41.85%** total compound growth (6 months)
 - **6-month runway** with clear update methodology
@@ -129,7 +129,7 @@ Methodology:  Compound growth formulas, statistical analysis
 ## 🔍 Problem-Solving Highlights
 
 ### Challenge 1: ARPU Calculation Methodology
-**Problem:** Initial ARPU calculations showed inflated values ($152+) due to VOX-ING's different user economics.
+**Problem:** Initial ARPU calculations showed inflated values ($152+) due to VOX-Network_Partner_2's different user economics.
 
 **Solution:** Switched from `Spend ÷ Users` ratio to **compound growth formula** (`$10.54 × 1.06^n`), maintaining consistency with core business trajectory.
 
@@ -143,9 +143,9 @@ Methodology:  Compound growth formulas, statistical analysis
 **Result:** December forecast reduced to realistic $5.09M with clear historical justification.
 
 ### Challenge 3: Target Methodology
-**Problem:** Risk of setting unrealistic targets based on uncertain VOX-ING performance.
+**Problem:** Risk of setting unrealistic targets based on uncertain VOX-Network_Partner_2 performance.
 
-**Solution:** Created **independent target streams** (core business targets + VOX-ING forecasts), avoiding inflated expectations.
+**Solution:** Created **independent target streams** (core business targets + VOX-Network_Partner_2 forecasts), avoiding inflated expectations.
 
 **Result:** Conservative 7% combined stretch goal vs. industry standard 15-20%.
 
@@ -154,7 +154,7 @@ Methodology:  Compound growth formulas, statistical analysis
 
 **Solution:** Rebranded to **"Core Business"** throughout dashboard, clarifying two distinct revenue sources.
 
-**Result:** Clear communication: Core Business (legacy publishers) + VOX-ING (new partnership).
+**Result:** Clear communication: Core Business (legacy publishers) + VOX-Network_Partner_2 (new partnership).
 
 ---
 
@@ -186,7 +186,7 @@ Methodology:  Compound growth formulas, statistical analysis
 ### Immediate Value
 ✅ **Executive Visibility**: Clear December 2025 targets ($12.94M combined)  
 ✅ **Defensible Methodology**: Data-driven, conservative approach  
-✅ **Dual-Stream Tracking**: Core business + VOX-ING separation  
+✅ **Dual-Stream Tracking**: Core business + VOX-Network_Partner_2 separation  
 ✅ **Reality-Based Forecasts**: Anchored to Aug/Sep actuals  
 
 ### Long-Term Value
@@ -197,7 +197,7 @@ Methodology:  Compound growth formulas, statistical analysis
 
 ### Business Outcomes
 - **$12.09M December forecast** with $0.85M achievable gap
-- **57.9% VOX-ING contribution** (pure incremental revenue)
+- **57.9% VOX-Network_Partner_2 contribution** (pure incremental revenue)
 - **6% monthly compound growth** (41.85% total over 6 months)
 - **Portfolio-featured project** demonstrating end-to-end BI skills
 

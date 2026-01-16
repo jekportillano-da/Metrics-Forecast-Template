@@ -1,5 +1,5 @@
 # POKITPAL METRICS - QUICK REFERENCE CARD
-## VOX-ING Integration Results (September 29, 2025)
+## VOX-Network_Partner_2 Integration Results (September 29, 2025)
 
 ---
 
@@ -8,12 +8,12 @@
 ### **METHODOLOGY CLARIFICATION**
 - **Historical Actuals**: Jun 2023 - Jul 2025 (real performance data)
 - **Forecast Period**: Aug - Dec 2025 (exponential smoothing applied)
-- **VOX-ING Integration**: Added to exponential smoothing baseline
+- **VOX-Network_Partner_2 Integration**: Added to exponential smoothing baseline
 
 ### **FORECASTS (Realistic Expectations)**
 - **Total Spend**: $8.29M (Baseline $4.97M + VOX $3.32M)
 - **Total Users**: 48,079 (Baseline 23k + VOX 25k)
-- **VOX-ING Share**: 40.0% spend, 51.4% users
+- **VOX-Network_Partner_2 Share**: 40.0% spend, 51.4% users
 
 ### **TARGETS (Stretch Goals)**
 - **Total Spend**: $9.94M (+20% vs forecast)
@@ -32,7 +32,7 @@
 
 ---
 
-## ⚡ **VOX-ING IMPACT**
+## ⚡ **VOX-Network_Partner_2 IMPACT**
 
 ### **Current Performance**
 - **August 2025**: $1.41M (partial month, started Aug 21)
@@ -54,10 +54,10 @@
 ### **FOR PERFORMANCE**
 - Need 20% outperformance vs forecast to hit targets
 - Focus on closing $1.65M December gap
-- Monitor VOX-ING weekly (40% business concentration)
+- Monitor VOX-Network_Partner_2 weekly (40% business concentration)
 
 ### **FOR STAKEHOLDERS**
-- Business scale fundamentally transformed by VOX-ING
+- Business scale fundamentally transformed by VOX-Network_Partner_2
 - December forecast $8.29M vs original $6.08M target (+36%)
 - Significant growth with manageable concentration risk
 

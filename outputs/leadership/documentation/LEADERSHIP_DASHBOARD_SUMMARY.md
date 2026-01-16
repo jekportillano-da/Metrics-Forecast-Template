@@ -10,7 +10,7 @@
   - Total merchants analyzed: 621 with $8.6M GMV
 
 ### 📊 **Performance Tables Section**
-- **Top 10 GMV Performers**: BWS Instore to Coles shopback
+- **Top 10 GMV Performers**: Merchant_A Instore to Coles affiliate_platform
   - Proper GMV labeling (not revenue)
   - Visual indicators for at-risk performers (White Fox highlighted)
   - Clean, professional table formatting
@@ -43,7 +43,7 @@
 1. **Executive Summary**: Q3 2025 performance vs targets
 2. **KPI Performance Cards**: September actual vs target metrics
 3. **Interactive Chart**: GMV/Users/Churn with metric toggles
-4. **ING Trajectory**: Launch spike and normalization trend
+4. **Network_Partner_2 Trajectory**: Launch spike and normalization trend
 5. **🆕 Merchant Variance Analysis**: Critical declining performers
 6. **🆕 User Network Analysis**: Declining networks and growth opportunities
 7. **🆕 Network Health Insights**: Risk categorization and strategic recommendations

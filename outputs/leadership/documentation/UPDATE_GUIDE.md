@@ -12,7 +12,7 @@ This guide provides step-by-step instructions for updating the Pokitpal Metrics 
 
 ### Required Data
 - ✅ December 2025 actual performance (spend, users, ARPU)
-- ✅ Core business vs. VOX-ING breakdown
+- ✅ Core business vs. VOX-Network_Partner_2 breakdown
 - ✅ Any new seasonal pattern observations
 - ✅ Updated churn rates (if available)
 
@@ -36,7 +36,7 @@ Core Business (December 2025 Actuals):
 [ ] ARPU: $___________
 [ ] Churn Rate: ___________%
 
-VOX-ING (December 2025 Actuals):
+VOX-Network_Partner_2 (December 2025 Actuals):
 [ ] Total Spend: $___________
 [ ] Total Users: ___________
 
@@ -46,7 +46,7 @@ Combined (December 2025):
 ```
 
 #### Validation Steps
-1. Verify core business and VOX-ING are properly separated
+1. Verify core business and VOX-Network_Partner_2 are properly separated
 2. Confirm user counts match active user definition
 3. Cross-check with finance/analytics systems
 4. Document any anomalies or outliers
@@ -128,7 +128,7 @@ Core_Users = 32,100 × 1.04 = 33,384
 Core_ARPU = $180.68 × 1.06 = $191.52
 ```
 
-**VOX-ING Projections:**
+**VOX-Network_Partner_2 Projections:**
 - Use December 2025 as baseline
 - Apply same growth logic or update based on market trends
 - Document any assumption changes
@@ -145,14 +145,14 @@ Core_ARPU = $180.68 × 1.06 = $191.52
 ```html
 <div class="metric-value">$12.09M</div>
 <div class="metric-label">Dec 2025 Forecast</div>
-<div class="sub-metric">79.3K Users | Core Business + VOX-ING</div>
+<div class="sub-metric">79.3K Users | Core Business + VOX-Network_Partner_2</div>
 ```
 
 **Replace with June 2026 metrics:**
 ```html
 <div class="metric-value">$[YOUR_JUNE_2026_FORECAST]M</div>
 <div class="metric-label">Jun 2026 Forecast</div>
-<div class="sub-metric">[YOUR_USERS]K Users | Core Business + VOX-ING</div>
+<div class="sub-metric">[YOUR_USERS]K Users | Core Business + VOX-Network_Partner_2</div>
 ```
 
 #### 4B: Update Monthly Glide Path Table
@@ -271,11 +271,11 @@ Jun 2026 Target = $5.80M × 1.4185 = $8.23M
 
 **Combined Target:**
 ```
-Combined Target = Core Target + VOX-ING Forecast
+Combined Target = Core Target + VOX-Network_Partner_2 Forecast
 
 Example:
 Core Target: $8.23M
-VOX-ING: $8.50M (projected)
+VOX-Network_Partner_2: $8.50M (projected)
 Combined: $16.73M
 ```
 
@@ -353,7 +353,7 @@ Dashboard Consistency:
 [ ] ARPU calculated via compound growth (not Spend/Users)
 
 Target Logic:
-[ ] Targets independent of VOX-ING
+[ ] Targets independent of VOX-Network_Partner_2
 [ ] Stretch percentage is 5-10%
 [ ] Combined = Core + VOX (not inflated)
 [ ] Methodology text matches calculations
@@ -409,7 +409,7 @@ Update: Jan-Jun 2026 forecast based on Dec 2025 actuals
 - New baseline: $5.80M core spend, 32,100 users
 - June 2026 target: $16.73M combined
 - Maintained 6% monthly compound growth methodology
-- VOX-ING: $8.50M June projection (steady state)
+- VOX-Network_Partner_2: $8.50M June projection (steady state)
 - Validated all calculations and dashboard consistency
 ```
 

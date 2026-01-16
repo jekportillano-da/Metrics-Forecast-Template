@@ -2,7 +2,7 @@
 """
 Merchant Performance Analysis - August to September 2025
 Loads large CSV into SQLite for efficient analysis
-Analyzes merchant-wise performance excluding User Network ING and EML
+Analyzes merchant-wise performance excluding User Network Network_Partner_2 and EML
 Focus: Aug-Sep variance analysis for actionable insights
 """
 
@@ -183,7 +183,7 @@ def identify_columns(columns):
     
     return found_columns
 
-def analyze_merchants_sql(conn, table_name, column_mapping, exclude_merchants=['User Network ING', 'EML']):
+def analyze_merchants_sql(conn, table_name, column_mapping, exclude_merchants=['User Network Network_Partner_2', 'EML']):
     """Perform merchant analysis using SQL queries"""
     print("🧮 Analyzing merchant performance with SQL...")
     
@@ -205,12 +205,12 @@ def analyze_merchants_sql(conn, table_name, column_mapping, exclude_merchants=['
     for _, row in check_df.iterrows():
         print(f"  {row[merchant_col]}: {row['count']:,} transactions")
     
-    # Build exclusion clause - use LIKE patterns for ING and EML networks + date filtering
+    # Build exclusion clause - use LIKE patterns for Network_Partner_2 and EML networks + date filtering
     exclude_conditions = []
     
-    # Exclude ING and EML networks from User_Network column (the actual data shows VOX - ING and EML Offline)
+    # Exclude Network_Partner_2 and EML networks from User_Network column (the actual data shows VOX - Network_Partner_2 and EML Offline)
     if user_col:
-        exclude_conditions.append(f"{user_col} LIKE '%ING%'")
+        exclude_conditions.append(f"{user_col} LIKE '%Network_Partner_2%'")
         exclude_conditions.append(f"{user_col} LIKE '%EML%'")
     
     # Also exclude from Merchant column if needed
@@ -422,7 +422,7 @@ def create_database_views(conn, table_name, column_mapping):
         SUM(CAST({amount_col} AS REAL)) as revenue,
         AVG(CAST({amount_col} AS REAL)) as avg_value
     FROM {table_name}
-    WHERE {merchant_col} NOT IN ('User Network ING', 'EML')
+    WHERE {merchant_col} NOT IN ('User Network Network_Partner_2', 'EML')
     GROUP BY {merchant_col}, strftime('%Y-%m', date_column)
     """
     
@@ -436,7 +436,7 @@ def create_database_views(conn, table_name, column_mapping):
         AVG(CAST({amount_col} AS REAL)) as avg_transaction_value,
         RANK() OVER (ORDER BY SUM(CAST({amount_col} AS REAL)) DESC) as revenue_rank
     FROM {table_name}
-    WHERE {merchant_col} NOT IN ('User Network ING', 'EML')
+    WHERE {merchant_col} NOT IN ('User Network Network_Partner_2', 'EML')
     GROUP BY {merchant_col}
     HAVING total_revenue > 1000
     ORDER BY total_revenue DESC
@@ -494,7 +494,7 @@ def main():
     print(f"  Database: {db_file} ({os.path.getsize(db_file)/(1024*1024):.1f} MB)")
     print(f"  Analysis: {len(merchant_df)} merchants analyzed")
     print(f"  Period: July - September 2025")
-    print(f"  Exclusions: User Network ING, EML")
+    print(f"  Exclusions: User Network Network_Partner_2, EML")
     
     conn.close()
     print(f"\n🎉 Analysis Complete!")

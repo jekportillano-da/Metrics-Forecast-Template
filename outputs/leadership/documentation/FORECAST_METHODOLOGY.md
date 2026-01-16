@@ -3,7 +3,7 @@
 ## 📋 Table of Contents
 1. [Overview](#overview)
 2. [Core Business Forecasting](#core-business-forecasting)
-3. [VOX-ING Forecasting](#vox-ing-forecasting)
+3. [VOX-Network_Partner_2 Forecasting](#vox-ing-forecasting)
 4. [Target Calculation Logic](#target-calculation-logic)
 5. [ARPU Methodology](#arpu-methodology)
 6. [Seasonal Adjustments](#seasonal-adjustments)
@@ -15,14 +15,14 @@
 ## Overview
 
 ### Philosophy
-The Pokitpal forecast methodology uses **compound growth** calculations with **data-driven seasonal adjustments** to provide conservative, achievable targets. VOX-ING revenue is treated as **incremental** to core business, not as a replacement.
+The Pokitpal forecast methodology uses **compound growth** calculations with **data-driven seasonal adjustments** to provide conservative, achievable targets. VOX-Network_Partner_2 revenue is treated as **incremental** to core business, not as a replacement.
 
 ### Key Principles
 - ✅ **Mathematical Consistency**: All calculations use compound growth formulas
 - ✅ **Conservative Targets**: 7% stretch goals (vs. industry 15-20%)
 - ✅ **Data-Driven Seasonality**: Based on actual 2024 patterns, not outliers
-- ✅ **Independent Streams**: Core business and VOX-ING tracked separately
-- ✅ **Reality-Based**: Anchored to actual Aug/Sep 2025 VOX-ING performance
+- ✅ **Independent Streams**: Core business and VOX-Network_Partner_2 tracked separately
+- ✅ **Reality-Based**: Anchored to actual Aug/Sep 2025 VOX-Network_Partner_2 performance
 
 ### Forecast Period
 - **Historical Data**: Jun 2023 - Jun 2025 (25 months actuals)
@@ -104,7 +104,7 @@ ARPU(Dec) = $14.95
 
 ---
 
-## VOX-ING Forecasting
+## VOX-Network_Partner_2 Forecasting
 
 ### Actual Performance (Confirmed)
 ```
@@ -113,7 +113,7 @@ September 2025: $5.49M spend | 39,180 users
 ```
 
 ### Projection Method
-VOX-ING forecasts for Oct-Dec 2025 are based on **continued growth from September baseline**, factoring in market penetration and seasonal patterns.
+VOX-Network_Partner_2 forecasts for Oct-Dec 2025 are based on **continued growth from September baseline**, factoring in market penetration and seasonal patterns.
 
 ### October-December 2025 Projections
 ```
@@ -122,7 +122,7 @@ November 2025:  $7.00M spend | 47,500 users
 December 2025:  $7.00M spend | 47,500 users
 ```
 
-### VOX-ING Growth Logic
+### VOX-Network_Partner_2 Growth Logic
 - **Aug → Sep**: 276% growth (early ramp-up phase)
 - **Sep → Oct**: Stabilization at ~$7-8M monthly run rate
 - **Oct → Dec**: Maintained steady state with slight seasonal lift
@@ -141,7 +141,7 @@ VOX Share = 57.9%
 ## Target Calculation Logic
 
 ### Target Philosophy
-Targets are set **independently** for core business and VOX-ING, then combined. This prevents unrealistic expectations from inflating core business targets based on uncertain VOX-ING performance.
+Targets are set **independently** for core business and VOX-Network_Partner_2, then combined. This prevents unrealistic expectations from inflating core business targets based on uncertain VOX-Network_Partner_2 performance.
 
 ### Core Business Targets
 ```
@@ -157,13 +157,13 @@ This represents the 6-month compound growth trajectory, plus seasonal adjustment
 
 ### Combined Targets
 ```
-Combined Target = Core Business Target + VOX-ING Forecast
+Combined Target = Core Business Target + VOX-Network_Partner_2 Forecast
 ```
 
 **December 2025 Example:**
 ```
 Core Target:    $5.94M
-VOX-ING:        $7.00M
+VOX-Network_Partner_2:        $7.00M
 Combined:       $12.94M
 ```
 
@@ -193,7 +193,7 @@ Our **7.0%** is intentionally conservative.
 ```
 ARPU = Total Spend ÷ Total Users
 ```
-This produces inconsistent results due to VOX-ING's different user economics.
+This produces inconsistent results due to VOX-Network_Partner_2's different user economics.
 
 ✅ **CORRECT METHOD:**
 ```
@@ -206,7 +206,7 @@ ARPU follows its own compound growth trajectory independent of spend/user ratios
 **Example December 2025:**
 ```
 Wrong Method:
-ARPU = $12.09M ÷ 79,333 users = $152.40 ❌ (Inflated by VOX-ING)
+ARPU = $12.09M ÷ 79,333 users = $152.40 ❌ (Inflated by VOX-Network_Partner_2)
 
 Correct Method:
 ARPU = $10.54 × (1.06)^6 = $14.95 ✅ (Consistent core business metric)
@@ -214,8 +214,8 @@ ARPU = $10.54 × (1.06)^6 = $14.95 ✅ (Consistent core business metric)
 
 ### ARPU Display in Dashboard
 - **Core Business ARPU**: Shows compound growth ($10.54 → $14.95)
-- **Combined ARPU**: Not displayed (misleading due to VOX-ING mix)
-- **VOX-ING ARPU**: Separate calculation based on VOX-specific economics
+- **Combined ARPU**: Not displayed (misleading due to VOX-Network_Partner_2 mix)
+- **VOX-Network_Partner_2 ARPU**: Separate calculation based on VOX-specific economics
 
 ### ARPU Glide Path (Jun → Dec 2025)
 ```
@@ -324,7 +324,7 @@ Before updating forecasts for Jan-Jun 2026, validate:
 
 #### ✅ Data Accuracy
 - [ ] All actuals match source data (finance system, analytics)
-- [ ] VOX-ING and core business properly separated
+- [ ] VOX-Network_Partner_2 and core business properly separated
 - [ ] No duplicate entries or missing months
 - [ ] User counts match active user definitions
 
@@ -332,11 +332,11 @@ Before updating forecasts for Jan-Jun 2026, validate:
 - [ ] ARPU calculated via compound growth (not Spend/Users)
 - [ ] Seasonal adjustments based on most recent non-outlier year
 - [ ] Compound growth formulas applied correctly
-- [ ] Targets independent of VOX-ING performance
+- [ ] Targets independent of VOX-Network_Partner_2 performance
 
 #### ✅ Business Logic
 - [ ] Core business growth rates realistic (4-6% monthly)
-- [ ] VOX-ING projections anchored to actual performance
+- [ ] VOX-Network_Partner_2 projections anchored to actual performance
 - [ ] Combined metrics = Core + VOX (not inflated)
 - [ ] Stretch percentages reasonable (5-10%)
 
@@ -364,7 +364,7 @@ $12.94M = $5.94M + $7.00M ✅
 
 If doesn't match, check:
 - Core business calculation
-- VOX-ING forecast
+- VOX-Network_Partner_2 forecast
 - Addition logic
 ```
 
@@ -376,7 +376,7 @@ If doesn't match, check:
 ❌ **Applying 2023's 85.6% seasonal factor**  
 ✅ Use 2024's 5.1% (recent, non-outlier)
 
-❌ **Inflating core targets based on VOX-ING**  
+❌ **Inflating core targets based on VOX-Network_Partner_2**  
 ✅ Keep streams independent
 
 ❌ **Forgetting to compound growth rates**  
@@ -397,7 +397,7 @@ If doesn't match, check:
 ### Quarterly Deep Dive (Recommended)
 - Validate growth rate assumptions
 - Review seasonal factor accuracy
-- Assess VOX-ING market share trends
+- Assess VOX-Network_Partner_2 market share trends
 - Recalibrate 6-month forecasts
 
 ### Annual Strategy Review
@@ -443,7 +443,7 @@ required_rate = Math.pow(target / current, 1 / months) - 1;
 | Oct 2025 | 1.9 | ARPU growth rate 8.5% → 6% | Align with spend growth methodology |
 | Oct 2025 | 1.8 | Seasonal adjustment 31% → 5.1% | Use 2024 pattern vs. 2023 outlier |
 | Oct 2025 | 1.7 | Fixed ARPU calculation method | Compound growth vs. Spend/Users ratio |
-| Sep 2025 | 1.6 | Integrated VOX-ING actuals | Aug $1.46M, Sep $5.49M confirmed |
+| Sep 2025 | 1.6 | Integrated VOX-Network_Partner_2 actuals | Aug $1.46M, Sep $5.49M confirmed |
 
 ---
 

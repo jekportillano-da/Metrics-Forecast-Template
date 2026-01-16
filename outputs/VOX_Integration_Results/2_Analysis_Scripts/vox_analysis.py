@@ -3,8 +3,8 @@ import numpy as np
 from datetime import datetime, timedelta
 import matplotlib.pyplot as plt
 
-# VOX-ING Data Analysis
-print("=== VOX-ING Data Analysis ===")
+# VOX-Network_Partner_2 Data Analysis
+print("=== VOX-Network_Partner_2 Data Analysis ===")
 print()
 
 # Given data
