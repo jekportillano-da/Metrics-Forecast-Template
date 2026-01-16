@@ -1,206 +1,282 @@
-# Pokitpal Metrics Dashboard - VOX-ING Integration
+# 📊 PokitPal Metrics & Forecasting Platform
 
-![Dashboard Status](https://img.shields.io/badge/Status-Production-green)
-![Last Updated](https://img.shields.io/badge/Updated-October%202025-blue)
-![Forecast Period](https://img.shields.io/badge/Forecast-Jul%202025%20--%20Dec%202025-orange)
+![Python](https://img.shields.io/badge/Python-3.13-blue?logo=python)
+![Status](https://img.shields.io/badge/Status-Production-success)
+![License](https://img.shields.io/badge/License-MIT-green)
+![Data Coverage](https://img.shields.io/badge/Data%20Coverage-Jun%202023--Dec%202025-orange)
 
-## 📊 Project Overview
+> **Professional financial analytics and forecasting system** for transaction data analysis, featuring automated ETL pipelines, time-series forecasting with exponential smoothing, and interactive executive dashboards.
 
-Comprehensive executive dashboard and forecasting system for Pokitpal's revenue metrics, integrating the new VOX-ING partnership alongside core business performance. This dashboard provides data-driven insights, interactive visualizations, and forecasting capabilities through December 2025, with infrastructure ready for Jan-Jun 2026 updates.
+---
 
-**Key Achievement:** Integrated VOX-ING partnership tracking showing $7.0M December contribution (57.9% of total revenue) while maintaining core business growth trajectory.
+## 🎯 Project Overview
 
-## 🚀 Quick Start
+A comprehensive data analytics platform built for analyzing **450K+ financial transactions** spanning 30 months, providing executive insights through automated forecasting models and interactive visualizations. The system handles merchant performance analysis, network attribution, and predictive modeling with Australian market seasonality.
 
-### View the Dashboard
-1. Open `VOX_Integration_Results/Executive_Dashboard.html` in any modern web browser
-2. No server required - fully standalone HTML dashboard
-3. Interactive charts powered by Chart.js
+### Key Features
+- ✅ **Automated ETL Pipeline** - Transaction ingestion with validation and deduplication
+- ✅ **Time Series Forecasting** - Holt-Winters exponential smoothing with seasonal adjustment
+- ✅ **Executive Dashboards** - Interactive HTML dashboards for leadership reporting
+- ✅ **Merchant Analytics** - Deep-dive analysis on merchant performance (BWS, Petbarn)
+- ✅ **Network Attribution** - VOX-ING integration tracking and analysis
+- ✅ **Data Privacy** - Database git-ignored for security compliance
 
-### Key Sections
-- **📊 Executive Summary**: High-level December 2025 metrics
-- **📈 Monthly Glide Path**: Detailed Jul-Dec 2025 progression
-- **🎯 Complete Data Overview**: Historical + forecast data tables
-- **📋 Core Business Metrics**: General business performance (non-VOX)
-- **🚀 VOX-ING Performance**: Partnership-specific tracking
+---
 
 ## 📁 Repository Structure
 
 ```
-Pokitpal Metrics/
-├── README.md                                      # This file - project overview
-├── FORECAST_METHODOLOGY.md                        # Detailed calculation methodologies
-├── UPDATE_GUIDE.md                                # Step-by-step guide for Jan-Jun 2026
-├── .gitignore                                     # Git exclusions
+pokitpal-metrics/
 │
-├── pokitpal_forecast_updated_with_vox.csv         # 🎯 PRIMARY DATA SOURCE
-├── complete_baseline_data.csv                     # Historical data (Jun 2023 - Jun 2025)
+├── src/pokitpal/              # Core Python package
+│   ├── data_access.py         # Database interface and query layer
+│   └── __init__.py
 │
-└── VOX_Integration_Results/
-    ├── Executive_Dashboard.html                   # 🎯 MAIN DELIVERABLE
-    ├── README.md                                  # Detailed dashboard documentation
-    │
-    ├── 1_Final_Deliverables/
-    │   ├── FINAL_Pokitpal_Forecast_with_VOX.csv  # Complete forecast dataset
-    │   └── Executive_Summary_Report.md            # Written analysis
-    │
-    ├── 2_Analysis_Scripts/
-    │   └── [Python scripts if needed]
-    │
-    ├── 3_Supporting_Data/
-    │   ├── forecast_results_with_vox.csv
-    │   ├── seasonal_adjusted_forecast.csv
-    │   └── vox_integration_summary.csv
-    │
-    └── 4_Visualizations/
-        └── [Chart exports]
+├── scripts/                   # Analysis and ETL scripts
+│   ├── create_forecast_2026.py       # Main forecasting pipeline
+│   ├── merchant_analysis.py          # Merchant performance analysis
+│   └── analysis/
+│       └── bws_petbarn/              # BWS/Petbarn specific scripts
+│
+├── data/
+│   ├── raw/                   # Source CSV files (git tracked)
+│   └── processed/             # SQLite database (git ignored)
+│       └── pokitpal_historical_data.db
+│
+├── docs/                      # Documentation and reports
+│   ├── BWS_PETBARN_ANALYSIS_REPORT.md
+│   └── BWS_PETBARN_QUICK_REFERENCE.md
+│
+├── outputs/                   # Analysis outputs
+│   ├── leadership/            # Executive dashboards
+│   │   ├── dashboards/        # HTML interactive dashboards
+│   │   ├── analysis/          # SPLY and forecast scripts
+│   │   └── documentation/     # Methodology guides
+│   └── VOX_Integration_Results/  # VOX-ING analysis
+│
+├── requirements.txt           # Python dependencies
+├── .gitignore                # Comprehensive ignore rules
+└── README.md                 # This file
 ```
-
-## 🎯 Key Metrics (December 2025)
-
-### Core Business (Legacy Publishers)
-- **Forecast**: $5.09M spend | 31,833 users
-- **Target**: $5.94M spend | 32,674 users
-- **ARPU**: $14.95 (6% monthly compound growth)
-
-### VOX-ING Partnership
-- **Forecast**: $7.00M spend | 47,500 users
-- **Revenue Share**: 57.9% of total business
-
-### Combined Performance
-- **Forecast**: $12.09M spend | 79,333 users
-- **Target**: $12.94M spend | 80,174 users
-- **Gap**: $0.85M (7.0% stretch above forecast)
-
-## � Methodology Highlights
-
-### Forecast Logic
-- **Core Business**: 6% monthly compound growth (spend & ARPU), 4% user growth
-- **Seasonal Adjustment**: +5.1% December (based on 2024 patterns)
-- **VOX-ING**: Actual Aug/Sep data + projected Oct-Dec growth
-- **ARPU Calculation**: Compound growth from $10.54 baseline (not Spend/Users ratio)
-
-### Target Strategy
-- **Philosophy**: Conservative, achievable targets (7% stretch vs industry 15-20%)
-- **Core Business**: Compound growth targets independent of VOX-ING
-- **Combined**: Core targets + VOX-ING forecasts (not inflated)
-
-**📖 For detailed methodology, see [FORECAST_METHODOLOGY.md](FORECAST_METHODOLOGY.md)**
-
-## � Future Updates (Jan-Jun 2026)
-
-This dashboard is designed for easy updates:
-
-1. **Data Collection**: Gather actual Jan-Jun 2026 performance
-2. **Update CSV**: Modify `pokitpal_forecast_updated_with_vox.csv`
-3. **Refresh Dashboard**: Update JavaScript arrays in HTML
-4. **Recalculate Targets**: Apply same compound growth methodology
-
-**📖 For step-by-step instructions, see [UPDATE_GUIDE.md](UPDATE_GUIDE.md)**
-
-## 🛠️ Technical Stack
-
-- **Frontend**: Pure HTML, CSS, JavaScript (no framework dependencies)
-- **Charts**: Chart.js 3.9.1 (CDN)
-- **Data Format**: CSV → JavaScript arrays
-- **Styling**: Embedded CSS with responsive design
-- **Browser Support**: Chrome, Firefox, Safari, Edge (latest versions)
-
-## 📊 Dashboard Features
-
-### Interactive Visualizations
-- **Spend Trend Chart**: Core business, VOX-ING, combined, and targets
-- **User Growth Chart**: User acquisition across all streams
-- **ARPU Progression**: Revenue per user over time
-
-### Data Tables
-- **Monthly Glide Path**: Jul-Dec 2025 detailed breakdown
-- **Complete Data Overview**: Combined historical + forecast
-- **Core Business Detailed**: All metrics for non-VOX business
-- **VOX-ING Only**: Partnership-specific performance
-
-### Key Insights Panels
-- Target philosophy and methodology
-- Historical performance context
-- Reality checks and validations
-
-## 📝 Documentation Files
-
-| File | Purpose |
-|------|---------|
-| `README.md` | Project overview and quick start (this file) |
-| `FORECAST_METHODOLOGY.md` | Detailed calculation logic and formulas |
-| `UPDATE_GUIDE.md` | Step-by-step guide for Jan-Jun 2026 updates |
-| `VOX_Integration_Results/README.md` | Dashboard-specific documentation |
-
-## 🎓 Key Learnings & Validations
-
-### Data Accuracy
-✅ VOX-ING actuals: Aug $1.46M, Sep $5.49M (confirmed)  
-✅ Seasonal adjustment: 5.1% (defensible vs. 2023's 31% outlier)  
-✅ ARPU methodology: Compound growth (not Spend/Users calculation)  
-✅ Target alignment: Consistent across all dashboard components  
-
-### Business Logic
-✅ VOX-ING = Incremental revenue (not replacement)  
-✅ Core business targets independent of VOX-ING performance  
-✅ Conservative stretch goals (7% vs. industry standard 15-20%)  
-✅ Compound growth maintains mathematical consistency  
-
-## � Maintenance & Updates
-
-### Monthly Review Checklist
-- [ ] Update actuals in CSV
-- [ ] Verify ARPU calculations
-- [ ] Check seasonal adjustments
-- [ ] Validate target progression
-- [ ] Update dashboard arrays
-- [ ] Test all interactive features
-
-### Git Workflow
-```bash
-# Stage changes
-git add .
-
-# Commit with descriptive message
-git commit -m "Update: Jan 2026 actuals and Feb-Jun forecasts"
-
-# Push to main
-git push origin main
-```
-
-## 📧 Usage Example (CEO Email)
-
-```
-**December 2025 Revenue Outlook**
-
-Our December forecast shows strong performance with VOX-ING contributing 
-meaningful incremental revenue:
-
-• Core Business: $5.09M forecast / $5.94M target (31.8K users)
-• VOX-ING: $7.00M forecast (47.5K users) - 57.9% of total revenue
-• Combined: $12.09M forecast / $12.94M target (79.3K users)
-
-Key Takeaway: VOX-ING partnership is delivering on its promise as pure 
-incremental revenue, while core business maintains 6% monthly growth trajectory.
-```
-
-## 🤝 Contributing
-
-This is a living document. As you update for Jan-Jun 2026:
-1. Follow the methodology in `FORECAST_METHODOLOGY.md`
-2. Use `UPDATE_GUIDE.md` for step-by-step instructions
-3. Document any methodology changes
-4. Update this README if structure changes
-
-## � License
-
-Internal use - Pokitpal Metrics Analysis
-
-## 📞 Contact
-
-For questions about methodology or updates, refer to the detailed documentation files or the inline comments in `Executive_Dashboard.html`.
 
 ---
 
-**Last Updated**: October 2025 | **Data Through**: June 2025 (Actual) + December 2025 (Forecast)
+## 🗄️ Database Architecture
+
+**Technology Stack:** SQLite 3  
+**Total Records:** 454,515 transactions  
+**Date Range:** July 2025 - December 2025 (with historical aggregates from June 2023)
+
+### Schema Design
+
+#### `transactions` Table
+Raw transaction-level data with full attribution
+- **Columns:** Transaction Date, Amount, User ID, Merchant, Category, Network, State
+- **Size:** 454K+ rows
+- **Indexes:** Date, User ID, Merchant for query optimization
+
+#### `forecast_2026` Table  
+Consolidated forecasting table with actuals and projections
+- **Date Range:** June 2023 - December 2026 (43 months)
+- **Columns:** Month, Spend, Spend Growth, Cashback, Users, ARPU, Churn
+- **Actuals:** Jul-Dec 2025 derived from transactions
+- **Forecasts:** Jan-Dec 2026 using exponential smoothing
+
+#### Additional Tables
+- `forecast_data` - Legacy forecast storage
+- `monthly_summary` - Pre-aggregated monthly metrics
+- `baseline_spend` - Historical baseline calculations
+
+---
+
+## 🚀 Quick Start
+
+### Prerequisites
+```bash
+Python 3.13+
+pip install -r requirements.txt
+```
+
+### Installation
+```bash
+# Clone repository
+git clone https://github.com/yourusername/pokitpal-metrics.git
+cd pokitpal-metrics
+
+# Create virtual environment
+python -m venv .venv
+.venv\Scripts\activate  # Windows
+source .venv/bin/activate  # Unix
+
+# Install dependencies
+pip install -r requirements.txt
+```
+
+### Running Analysis
+
+#### 1. Generate 2026 Forecast
+```bash
+python scripts/create_forecast_2026.py
+```
+**Output:** Updates `forecast_2026` table with latest actuals and projections
+
+#### 2. Merchant Performance Analysis
+```bash
+python scripts/merchant_analysis.py
+```
+**Output:** Merchant-level insights and trend analysis
+
+#### 3. View Executive Dashboard
+```bash
+# Navigate to outputs/leadership/dashboards/
+# Open Leadership_Presentation_Nov2025.html in browser
+```
+**Features:** Interactive charts, YoY comparisons, network breakdowns
+
+---
+
+## 📊 Forecasting Methodology
+
+### Model: Holt-Winters Exponential Smoothing
+- **Seasonality:** 12-month period (additive)
+- **Trend Component:** Additive linear trend
+- **Australian Market Factors:** Monthly adjustment dictionary
+  - Peak: December (1.12x), November (1.08x) - Summer/Christmas season
+  - Low: April (0.95x), May (0.96x) - Autumn slowdown
+
+### Workflow
+1. **Data Extraction** - Query transactions table for latest actuals
+2. **Historical Analysis** - Load Jun 2023-Jun 2025 baseline data
+3. **Model Training** - Fit exponential smoothing on historical patterns
+4. **Seasonal Adjustment** - Apply Australian market multipliers
+5. **Projection Generation** - Forecast Jan-Dec 2026 metrics
+6. **Database Update** - Write results to forecast_2026 table
+
+### Metrics Forecasted
+- 💰 **Spend** - Total transaction volume
+- 🎁 **Cashback** - Rewards paid to users
+- 💵 **Fees** - Merchant processing fees
+- 👥 **Active Users** - Monthly unique users
+- 📉 **Churn** - 45-day inactive users
+- 💎 **ARPU** - Average revenue per user
+
+---
+
+## 🔍 Key Analyses
+
+### 1. BWS/Petbarn Merchant Deep-Dive
+**Location:** [scripts/analysis/bws_petbarn/](scripts/analysis/bws_petbarn/)  
+**Reports:** [docs/BWS_PETBARN_ANALYSIS_REPORT.md](docs/BWS_PETBARN_ANALYSIS_REPORT.md)
+
+- Variant performance comparison (cashback tiers)
+- Offer pause impact analysis
+- VOX-ING network exclusion studies
+
+### 2. VOX Integration Impact
+**Location:** [outputs/VOX_Integration_Results/](outputs/VOX_Integration_Results/)  
+**Key Finding:** Network attribution and spend correlation
+
+### 3. Leadership Reporting
+**Location:** [outputs/leadership/](outputs/leadership/)  
+**Dashboard:** Monthly performance vs. targets with SPLY comparison
+
+---
+
+## 📈 Sample Results (2025 Actuals)
+
+| Metric | Jul 2025 | Dec 2025 | Growth |
+|--------|----------|----------|--------|
+| **Spend** | $9.8M | $8.5M* | -13% |
+| **Users** | 62,518 | 56,489* | -10% |
+| **Cashback** | $488K | $382K* | -22% |
+| **ARPU** | $156 | $151* | -3% |
+
+*December 2025 data incomplete (55% of expected volume)
+
+### 2026 Forecast Summary
+- **Total Spend:** $117.6M (+68% vs 2025)
+- **Peak Month:** December 2026 ($11.2M)
+- **Average Users:** 65K/month
+- **Total Cashback:** $5.3M
+
+---
+
+## 🛡️ Data Privacy & Security
+
+### Git Ignore Strategy
+```gitignore
+# Sensitive transaction data excluded
+data/processed/              # Entire database folder
+*.db
+*.sqlite
+
+# Aggregate data and scripts are tracked
+# Raw CSVs excluded by default (uncomment if sensitive)
+```
+
+### Rationale
+- ✅ **Code & Analysis Scripts** - Tracked for portfolio demonstration
+- ✅ **Documentation & Reports** - Tracked (no PII)
+- ✅ **Dashboard Templates** - Tracked (visualization code only)
+- ❌ **Raw Transactions** - Git ignored (contains user-level data)
+- ❌ **Database Files** - Git ignored (sensitive information)
+
+---
+
+## 🧪 Testing & Validation
+
+### Data Quality Checks
+- Transaction state validation (Cleared, Pending, Cancelled)
+- Date format consistency (DD/MM/YYYY for new data)
+- Amount parsing (handles $ symbols, negatives)
+- Deduplication on import
+
+### Forecast Validation
+- Historical backtest accuracy
+- Seasonal factor verification against market trends
+- Growth rate sanity checks
+
+---
+
+## 🤝 Contributing
+
+This is a portfolio project demonstrating professional data analytics capabilities. While not actively seeking contributions, feedback and suggestions are welcome via Issues.
+
+---
+
+## 📧 Contact
+
+**Developer:** [Your Name]  
+**Portfolio:** [Your Website]  
+**LinkedIn:** [Your LinkedIn]  
+**Email:** [Your Email]
+
+---
+
+## 📜 License
+
+MIT License - See LICENSE file for details
+
+---
+
+## 🏆 Skills Demonstrated
+
+This project showcases expertise in:
+
+- **Data Engineering:** ETL pipeline design, SQLite optimization, data validation
+- **Statistical Modeling:** Time series forecasting, exponential smoothing, seasonal decomposition
+- **Business Intelligence:** Executive dashboard design, KPI tracking, variance analysis
+- **Python Development:** Clean architecture, modular design, package structure
+- **Data Visualization:** Interactive HTML dashboards, trend analysis, comparative reporting
+- **Documentation:** Technical writing, methodology documentation, knowledge transfer
+- **Version Control:** Git workflow, professional repository structure, sensitive data handling
+
+---
+
+<div align="center">
+
+**⭐ Star this repository if you find it helpful!**
+
+Built with ❤️ and Python | © 2025
+
+</div>

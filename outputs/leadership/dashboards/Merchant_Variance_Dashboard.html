@@ -1,0 +1,392 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>🎯 Merchant Performance & Variance Dashboard</title>
+    <script src="https://cdn.jsdelivr.net/npm/chart.js"></script>
+    <style>
+        body {
+            font-family: 'Segoe UI', Tahoma, Geneva, Verdana, sans-serif;
+            margin: 0;
+            padding: 20px;
+            background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+            color: #333;
+        }
+        
+        .dashboard-container {
+            max-width: 1400px;
+            margin: 0 auto;
+            background: white;
+            border-radius: 15px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.2);
+            overflow: hidden;
+        }
+        
+        .header {
+            background: linear-gradient(135deg, #ff6b6b, #ee5a24);
+            color: white;
+            padding: 30px;
+            text-align: center;
+        }
+        
+        .header h1 {
+            margin: 0 0 10px 0;
+            font-size: 2.5em;
+            font-weight: 300;
+        }
+        
+        .header p {
+            margin: 0;
+            font-size: 1.2em;
+            opacity: 0.9;
+        }
+        
+        .metrics-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+            gap: 20px;
+            padding: 30px;
+            background: #f8f9fa;
+        }
+        
+        .metric-card {
+            background: white;
+            padding: 25px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            text-align: center;
+            transition: transform 0.3s ease;
+        }
+        
+        .metric-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .metric-value {
+            font-size: 2.5em;
+            font-weight: bold;
+            margin: 10px 0;
+        }
+        
+        .metric-label {
+            color: #666;
+            font-size: 0.9em;
+            text-transform: uppercase;
+            letter-spacing: 1px;
+        }
+        
+        .alert-section {
+            background: #fff3cd;
+            border-left: 5px solid #ffc107;
+            margin: 20px 30px;
+            padding: 20px;
+            border-radius: 5px;
+        }
+        
+        .alert-title {
+            color: #856404;
+            font-weight: bold;
+            font-size: 1.2em;
+            margin-bottom: 15px;
+        }
+        
+        .alert-item {
+            margin: 10px 0;
+            padding: 10px;
+            background: rgba(255, 193, 7, 0.1);
+            border-radius: 5px;
+        }
+        
+        .charts-section {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .chart-container {
+            background: white;
+            padding: 20px;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+        }
+        
+        .tables-section {
+            padding: 30px;
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: 30px;
+        }
+        
+        .table-container {
+            background: white;
+            border-radius: 10px;
+            box-shadow: 0 4px 6px rgba(0,0,0,0.1);
+            overflow: hidden;
+        }
+        
+        .table-header {
+            background: #343a40;
+            color: white;
+            padding: 15px 20px;
+            font-weight: bold;
+        }
+        
+        .table-content {
+            max-height: 400px;
+            overflow-y: auto;
+        }
+        
+        table {
+            width: 100%;
+            border-collapse: collapse;
+        }
+        
+        th, td {
+            padding: 12px 15px;
+            text-align: left;
+            border-bottom: 1px solid #eee;
+        }
+        
+        th {
+            background: #f8f9fa;
+            font-weight: 600;
+            position: sticky;
+            top: 0;
+        }
+        
+        .decline {
+            color: #dc3545;
+            font-weight: bold;
+        }
+        
+        .growth {
+            color: #28a745;
+            font-weight: bold;
+        }
+        
+        .recommendations {
+            background: #e8f5e8;
+            margin: 20px 30px;
+            padding: 25px;
+            border-radius: 10px;
+            border-left: 5px solid #28a745;
+        }
+        
+        .recommendations h3 {
+            color: #155724;
+            margin-top: 0;
+        }
+        
+        .action-item {
+            background: white;
+            margin: 10px 0;
+            padding: 15px;
+            border-radius: 5px;
+            border-left: 3px solid #28a745;
+        }
+    </style>
+</head>
+<body>
+    <div class="dashboard-container">
+        <!-- Header -->
+        <div class="header">
+            <h1>🎯 Merchant Performance & Variance Dashboard</h1>
+            <p>July - September 2025 | Focus: Top Performers vs Declining Merchants</p>
+        </div>
+        
+        <!-- Key Metrics -->
+        <div class="metrics-grid">
+            <div class="metric-card">
+                <div class="metric-label">Total Revenue</div>
+                <div class="metric-value" style="color: #28a745;">$12.35M</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Merchants Analyzed</div>
+                <div class="metric-value" style="color: #007bff;">679</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Total Transactions</div>
+                <div class="metric-value" style="color: #6f42c1;">160,204</div>
+            </div>
+            <div class="metric-card">
+                <div class="metric-label">Critical Declines</div>
+                <div class="metric-value" style="color: #dc3545;">10</div>
+            </div>
+        </div>
+        
+        <!-- Critical Alerts -->
+        <div class="alert-section">
+            <div class="alert-title">🚨 URGENT: Critical Performance Declines Detected</div>
+            <div class="alert-item">
+                <strong>Xbox Live CSV eGift Card:</strong> Complete collapse - 7,880 transactions lost (-100%)
+            </div>
+            <div class="alert-item">
+                <strong>Grow My Money Network:</strong> Massive decline - 7,862 transactions lost (-92%)
+            </div>
+            <div class="alert-item">
+                <strong>White Fox Boutique:</strong> Top performer declining - 362 transactions lost (-31%)
+            </div>
+        </div>
+        
+        <!-- Charts -->
+        <div class="charts-section">
+            <div class="chart-container">
+                <h3>📊 Top 10 Revenue Performers</h3>
+                <canvas id="revenueChart"></canvas>
+            </div>
+            <div class="chart-container">
+                <h3>📉 Performance Variance (Aug→Sep)</h3>
+                <canvas id="varianceChart"></canvas>
+            </div>
+        </div>
+        
+        <!-- Data Tables -->
+        <div class="tables-section">
+            <div class="table-container">
+                <div class="table-header">🏆 Top Revenue Performers</div>
+                <div class="table-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Merchant</th>
+                                <th>Revenue</th>
+                                <th>Share</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>BWS Instore</td><td>$2,676,928</td><td class="growth">21.7%</td></tr>
+                            <tr><td>2</td><td>Petbarn Online</td><td>$1,156,517</td><td class="growth">9.4%</td></tr>
+                            <tr><td>3</td><td>Chemist Warehouse Online</td><td>$784,338</td><td class="growth">6.4%</td></tr>
+                            <tr><td>4</td><td>Booking.com</td><td>$650,512</td><td class="growth">5.3%</td></tr>
+                            <tr><td>5</td><td>The Collagen Co. Online</td><td>$335,913</td><td>2.7%</td></tr>
+                            <tr><td>6</td><td>White Fox Boutique</td><td>$313,355</td><td class="decline">2.5%</td></tr>
+                            <tr><td>7</td><td>MILKRUN</td><td>$265,869</td><td>2.2%</td></tr>
+                            <tr><td>8</td><td>LSKD</td><td>$251,246</td><td>2.0%</td></tr>
+                            <tr><td>9</td><td>OVO Energy - Suncorp</td><td>$233,672</td><td>1.9%</td></tr>
+                            <tr><td>10</td><td>The Iconic</td><td>$212,307</td><td>1.7%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+            
+            <div class="table-container">
+                <div class="table-header">📉 Most Declining Merchants</div>
+                <div class="table-content">
+                    <table>
+                        <thead>
+                            <tr>
+                                <th>Rank</th>
+                                <th>Merchant</th>
+                                <th>Aug→Sep</th>
+                                <th>% Change</th>
+                            </tr>
+                        </thead>
+                        <tbody>
+                            <tr><td>1</td><td>Xbox Live CSV eGift Card</td><td class="decline">7,881→1</td><td class="decline">-100.0%</td></tr>
+                            <tr><td>2</td><td>White Fox Boutique</td><td class="decline">1,157→795</td><td class="decline">-31.3%</td></tr>
+                            <tr><td>3</td><td>Laithwaites Wine</td><td class="decline">267→0</td><td class="decline">-100.0%</td></tr>
+                            <tr><td>4</td><td>Adore Beauty</td><td class="decline">469→254</td><td class="decline">-45.8%</td></tr>
+                            <tr><td>5</td><td>Citro Rewards</td><td class="decline">182→0</td><td class="decline">-100.0%</td></tr>
+                            <tr><td>6</td><td>Oz Hair & Beauty Online</td><td class="decline">658→554</td><td class="decline">-15.8%</td></tr>
+                            <tr><td>7</td><td>Glassons Online</td><td class="decline">427→354</td><td class="decline">-17.1%</td></tr>
+                            <tr><td>8</td><td>General Pants Instore</td><td class="decline">340→268</td><td class="decline">-21.2%</td></tr>
+                            <tr><td>9</td><td>Converse Online</td><td class="decline">100→37</td><td class="decline">-63.0%</td></tr>
+                            <tr><td>10</td><td>Menulog</td><td class="decline">311→257</td><td class="decline">-17.4%</td></tr>
+                        </tbody>
+                    </table>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Recommendations -->
+        <div class="recommendations">
+            <h3>🎯 Immediate Strategic Actions Required</h3>
+            <div class="action-item">
+                <strong>1. Emergency Intervention (Within 24 Hours):</strong><br>
+                Contact Xbox Live CSV eGift Card and investigate complete transaction collapse
+            </div>
+            <div class="action-item">
+                <strong>2. Network Crisis Response:</strong><br>
+                Investigate Grow My Money (Super Rewards) network - 92% decline needs immediate attention
+            </div>
+            <div class="action-item">
+                <strong>3. Top Performer Risk Management:</strong><br>
+                Deploy retention campaign for White Fox Boutique - critical revenue at risk
+            </div>
+            <div class="action-item">
+                <strong>4. Comprehensive Health Audit:</strong><br>
+                Review all merchants with >20% decline for technical, competitive, or relationship issues
+            </div>
+        </div>
+    </div>
+    
+    <script>
+        // Revenue Chart
+        const revenueCtx = document.getElementById('revenueChart').getContext('2d');
+        new Chart(revenueCtx, {
+            type: 'bar',
+            data: {
+                labels: ['BWS Instore', 'Petbarn Online', 'Chemist Warehouse', 'Booking.com', 'Collagen Co.', 'White Fox', 'MILKRUN', 'LSKD', 'OVO Energy', 'The Iconic'],
+                datasets: [{
+                    label: 'Revenue ($M)',
+                    data: [2.68, 1.16, 0.78, 0.65, 0.34, 0.31, 0.27, 0.25, 0.23, 0.21],
+                    backgroundColor: [
+                        '#28a745', '#17a2b8', '#007bff', '#6f42c1', '#20c997',
+                        '#fd7e14', '#ffc107', '#dc3545', '#6c757d', '#343a40'
+                    ]
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        beginAtZero: true,
+                        title: {
+                            display: true,
+                            text: 'Revenue ($ Millions)'
+                        }
+                    }
+                }
+            }
+        });
+        
+        // Variance Chart
+        const varianceCtx = document.getElementById('varianceChart').getContext('2d');
+        new Chart(varianceCtx, {
+            type: 'bar',
+            data: {
+                labels: ['Xbox Live', 'White Fox', 'Laithwaites', 'Adore Beauty', 'Citro Rewards', 'Oz Hair & Beauty', 'Glassons', 'General Pants', 'Converse', 'Menulog'],
+                datasets: [{
+                    label: 'Transaction Decline',
+                    data: [-7880, -362, -267, -215, -182, -104, -73, -72, -63, -54],
+                    backgroundColor: '#dc3545'
+                }]
+            },
+            options: {
+                responsive: true,
+                plugins: {
+                    legend: {
+                        display: false
+                    }
+                },
+                scales: {
+                    y: {
+                        title: {
+                            display: true,
+                            text: 'Transaction Change (Aug→Sep)'
+                        }
+                    }
+                }
+            }
+        });
+    </script>
+</body>
+</html>

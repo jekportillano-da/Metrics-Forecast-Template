@@ -1,0 +1,9 @@
+month,unique_users,transaction_count,total_spend,scenario
+2025-07,2570,3109,389639.47,With VOX-ING Network
+2025-08,5968,6659,854971.73,With VOX-ING Network
+2025-09,10608,12319,1594374.45,With VOX-ING Network
+2025-10,3633,3768,494442.91,With VOX-ING Network
+2025-07,526,637,79331.93,Without VOX-ING Network
+2025-08,590,714,88326.22,Without VOX-ING Network
+2025-09,679,841,106719.0,Without VOX-ING Network
+2025-10,281,306,38607.26,Without VOX-ING Network
